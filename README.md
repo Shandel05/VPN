@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
+<img src="https://i.imgur.com/FO2s0fF.png" alt="Microsoft Active Directory Logo"/>
 </p>
 
 <h1>Understanding Virtual Private Networks (VPNs) in Azure</h1>
@@ -9,12 +9,12 @@ This lab demonstrates the steps I took to setup, install, and use a free Virtual
 
 - Microsoft Azure (Virtual Machines/Compute)
 - Remote Desktop
-- Active Directory Domain Services
 
 <h2>Operating Systems Used </h2>
 
 - Windows Server 2022
 - Windows 10 Pro (21H2)
+- ProtonVPN
 
 <h2>Installation Steps</h2>
 
