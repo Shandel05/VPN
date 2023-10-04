@@ -47,4 +47,4 @@ After retrieving my IP address from browsing on my remote desktop, I then instal
 
 <h2>An Important Note </h2>
 
-When logging back in to the domain controller VM through Remote Desktop Connection, it is important to log in with the context of the domain. Type out the domain path and then the name of the user. For example: mydomain.com\labuser. In my case, it is ernestotest.com\labuser. Now that Active Directory is installed, configurations can be implemented in future labs and the client VM will be able to join the domain that was created.
+Since VPNs can securely link two computers (or networks) together across an insecure network such as the internet, yo can see how my IPv4 has changed 3 different times. A good way to think of VPNs is the link to be able to connect and access resources at work from your home.
