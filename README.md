@@ -9,38 +9,39 @@ This lab demonstrates the steps I took to setup, install, and use a free Virtual
 
 - Microsoft Azure (Virtual Machines/Compute)
 - Remote Desktop
+- ProtonVPN
 
 <h2>Operating Systems Used </h2>
 
 - Windows Server 2022
 - Windows 10 Pro (21H2)
-- ProtonVPN
 
 <h2>Installation Steps</h2>
 
 <p>
-<img src="https://i.imgur.com/fBRzEZ3.png" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://i.imgur.com/W8lQlaT.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
-Before using the VMs, it is important to set the domain controller VM's IP address as static. By default, the VMs will not be able to communicate with each other if both have dynamic IPs despite being on the same vnet. If we do not make the necessary change, the client will not be able to join the domain that will be created later. On the Azure portal, click on the Networking tab on the domain controller VM. Click on the Network Interface and open the IP configurations tab. Toggle the Assignment switch to be Static and save your changes. We are making sure the domain controller has a static IP and it will be used as a reference when we make configurations.
+Before creating a VM, on my actual PC I will browse to www.whatsmyipaddress.com. This will tell me my Public IP address along with ISP name, City, Region and Country. In my case the IPv4: 71.104.19.191, ISP: Verizon Business, City: Ashburn, Region: Virginia, Country: United States</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/U1WcM3q.png" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://i.imgur.com/wjBMMhV.png" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://i.imgur.com/GGwUDc2.png" height="80%" width="80%" alt="Installation Steps"/>
+</p>
+<p>
+While creating the VM with azure,I made sure the Location was different from my regular PC so I chose the location for the VM in North Europe. I then log into the remote desk top with the Public IP address from the VM. After I was signed into remote desktop I browsed back to www.whatsmyipaddress.com. This time from my VM remote desktop my IPv4: 20.223.146.120, ISP: Microsoft Corporation, City: Dublin, Region: Dublin, Country: Ireland. Since I created my VM with a location in Europe my IP address has changed from when I browesed from my PC.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/hE1XNtg.png" height="80%" width="80%" alt="Installation Steps"/>
-<img src="https://i.imgur.com/hlDtnbY.png" height="80%" width="80%" alt="Installation Steps"/>
-<img src="https://i.imgur.com/IbIJWiC.png" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://i.imgur.com/A58YVeB.png" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://i.imgur.com/vDLXWwQ.png" height="80%" width="80%" alt="Installation Steps"/>
+<img src="https://i.imgur.com/EMfNt3X.png" height="80%" width="80%" alt="Installation Steps"/>
 </p>
 <p>
-After setting the static IP, it is time to log in to the client VM and see if there is connectivity to the domain controller. Using ping -t (domain controller private ip address), will show that the connection is being timed out. On the domain controller VM, we need to enable ICMPv4 on the local Windows Firewall. Within the search bar, type wf.msc to open Windows Defender Firewall. Click on Inbound Rules and enable the Core Networking Diagnostics - ICMP Echo Request rules. Returning to the client VM will show that the ping is now resolving without errors.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/ktSoNmA.png" height="80%" width="80%" alt="Installation Steps"/>
-</p>
-<p>
-It is now time to install Active Directory on the domain controller VM. With Server Manager open, click on Add Roles and Features and click Next. Confirm the private IP address of the domain controller VM. In the Server Roles tab, click on Active Directory Domain Services. Click Add Features, click Next, then Install. Next we have to promote the server into a domain controller. In Server Manager, there is a warning sign in the top right corner under a flag. Click on that flag and click Promote this server to a domain controller. Click on Add a new forest and specify a domain name. In my case, I will use ernestotest.com. Specify a password for the domain and click on Next on each screen and Install.
+After retrieving my IP address from browsing on my remote desktop, I then installed ProtonVPN within my remote desktop, the dedicated VPN solution that provides secure, unrestricted, high-speed access to the internet. I connected the VPN to a Japan server and browsed one last time to www.whatmyipaddress.com. This time my VM remote desktop that is connected to ProtonVPN sever out of Japan give me a IPv4: 138.199.21.201, ISP: DataCamp Limited, City: Tokyo, Region: Tokyo, Country: Japan.
 </p>
 <br />
 
