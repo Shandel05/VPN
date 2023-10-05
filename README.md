@@ -13,7 +13,6 @@ This lab demonstrates the steps I took to setup, install, and use a free Virtual
 
 <h2>Operating Systems Used </h2>
 
-- Windows Server 2022
 - Windows 10 Pro (21H2)
 
 <h2>Installation Steps</h2>
